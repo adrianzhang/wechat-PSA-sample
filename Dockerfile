@@ -59,14 +59,26 @@ RUN pip install -r requirements.txt && rm -rf requirements.txt
 #ENTRYPOINT []
 #CMD [/usr/bin/sh]
 
+# my simulation of VOLUME
+RUN \
+  mkdir /Cantonese && \
+  mkdir /Cantonese_audio
+
+#######################################################################
+
 #copy codes
-#COPY ./ /Cantonese
-
-#EXPOSE 80
-
-#ENTRYPOINT ["python"]
-#CMD ["wechat.py", "-e", "Pro"]
+COPY ./ /Cantonese
 
 EXPOSE 80
-ENTRYPOINT []
-CMD []
+
+ENTRYPOINT ["python"]
+CMD ["wechat.py", "-e", "Pro"]
+
+#######################################################################
+# 根据原始输出已经无法运行，毕竟有些步骤并没有。于是自己写了如下起始命令
+
+#EXPOSE 80
+#ENTRYPOINT []
+#CMD []
+
+# 将其程序代码拷贝到docker目录，然后还是使用其原始工作方式。
