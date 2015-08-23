@@ -1,3 +1,9 @@
+#######################################################################
+#
+#  这个Docker file根据CoolCantonese项目里所有相关的docker file拼起来而形成的
+#
+#######################################################################
+
 FROM ubuntu:14.04
 MAINTAINER Adrian Zhang "adrian@favap.com"
 ENV REFRESHED_AT 2015-8-23
@@ -56,7 +62,11 @@ RUN pip install -r requirements.txt && rm -rf requirements.txt
 #copy codes
 #COPY ./ /Cantonese
 
-EXPOSE 80
+#EXPOSE 80
 
 #ENTRYPOINT ["python"]
 #CMD ["wechat.py", "-e", "Pro"]
+
+EXPOSE 80
+ENTRYPOINT []
+CMD []
